@@ -1,19 +1,19 @@
 package org.example;
 
-public class BackupCache extends Cache {
+public abstract class CacheBase<C> extends Cache {
 
-    public BackupCache() {
-        super("https://reddis-backup-cache.com");
+    public CacheBase() {
+        super();
     }
 
     @Override
-    public String get(String key) {
+    public Object get(String key) {
         System.out.println("Using backup cache to get value.");
         return cache.get(key);
     }
 
     @Override
-    public void put(String key, String value) {
+    public void put(String key, Object value) {
         System.out.println("Using backup cache to save value.");
         cache.put(key, value);
     }
